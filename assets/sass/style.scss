@@ -1,0 +1,234 @@
+html { margin-left: calc(100% - 100vw); }
+body {
+  font-family: "Arial", "Microsoft YaHei", sans-serif;
+}
+.access {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  text-indent: -999px;
+}
+header {
+  h2 {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 1.8em;
+  }
+}
+select {
+  width: 100%;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+input {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+.main-logo {
+  position: absolute;
+}
+.logo-hk01news {
+  width: 3em;
+  height: auto;
+}
+//////////////////////////////
+
+.main {
+  max-width: 1200px;
+  max-height: 1200px;
+  width: 100%;
+  height: 100vw;
+  margin: 0 auto;
+  overflow: hidden;
+  .container-fluid {
+  }
+}
+.map_cont {
+  position: relative;
+}
+.map_base {
+  max-width: 1200px;
+  max-height: 1200px;
+  width: 100%;
+  height: 100vw;
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  z-index: 9;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+.remark {
+  padding: 1px 0 0 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: (100vw * 20 / 1200);
+}
+
+
+.map_time {
+  max-height: 1200px;
+  width: 100%;
+  height: 100vw;
+  position: absolute;
+  z-index: 10;
+}
+.mtlbl {
+  max-height: 50px;
+  width: (100% * 158 / 1200);
+  height: (100% * 50 / 1200);
+  background-color: #DDD;
+  position: absolute;
+  z-index: 11;
+  .time {
+    font-size: (100vw * 36 / 1200);
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -1px;
+  }
+}
+
+%mtlbl_left {
+  left: (100% * 20 / 1200);
+}
+%mtlbl_right {
+  right: (100% * 20 / 1200);
+}
+%mtlbl_top {
+  top: (100% * 105 / 1200);
+}
+%mtlbl_bottom {
+  top: (100% * 1061 / 1200);
+}
+
+.tp_nethersole {
+  @extend %mtlbl_right;
+  top: (100% * 264 / 1200);
+}
+.caritas {
+  @extend %mtlbl_left;
+  top: (100% * 696 / 1200);
+}
+.kwong_wah {
+  @extend %mtlbl_right;
+  top: (100% * 583 / 1200);
+}
+.north_district {
+  @extend %mtlbl_top;
+  left: (100% * 603 / 1200);
+}
+.north_lantau {
+  @extend %mtlbl_left;
+  top: (100% * 916 / 1200);
+}
+.princess_margaret {
+  left: (100% * 416 / 1200);
+  top: (100% * 397 / 1200);
+}
+.pok_oi {
+  @extend %mtlbl_top;
+  left: (100% * 382 / 1200);
+}
+.prince_wales {
+  @extend %mtlbl_right;
+  top: (100% * 420 / 1200);
+}
+.eastern {
+  @extend %mtlbl_bottom;
+  left: (100% * 848 / 1200);
+}
+.queen_elizabeth {
+  left: (100% * 344 / 1200);
+  top: (100% * 769 / 1200);
+}
+.queen_mary {
+  @extend %mtlbl_bottom;
+  left: (100% * 463 / 1200);
+}
+.ruttonjee {
+  @extend %mtlbl_bottom;
+  left: (100% * 654 / 1200);
+}
+.cheung_chau {
+  @extend %mtlbl_bottom;
+  left: (100% * 132 / 1200);
+}
+.tko {
+  @extend %mtlbl_right;
+  top: (100% * 895 / 1200);
+}
+.tuen_mun {
+  @extend %mtlbl_left;
+  top: (100% * 426 / 1200);
+}
+.tsw {
+  @extend %mtlbl_left;
+  @extend %mtlbl_top;
+}
+.united_christian {
+  @extend %mtlbl_right;
+  top: (100% * 721 / 1200);
+}
+.yan_chai {
+  @extend %mtlbl_left;
+  top: (100% * 562 / 1200);
+}
+.nodata {
+  background-color: #b7b8b9;
+}
+.low {
+  background-color: #fde5d8;
+}
+.medium {
+  background-color: #f8936c;
+}
+.high {
+  background-color: #d9301d;
+  color: #FFF;
+}
+// .severe {
+//   background-color: #d90000;
+//   color: #FFF;
+// }
+
+@media (max-width: 540px) {
+  .remark {
+    font-size: 12px;
+  }
+  .mtlbl {
+    height: auto;
+    .time {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+}
+
+@media (min-width: 540px) and (max-width: 768px) {
+  .remark {
+    font-size: 12px;
+  }
+  .mtlbl {
+    .time {
+      font-size: (100vw * 30 / 1200);
+      line-height: 1.5;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .mtlbl {
+    .time {
+      font-size: 36px;
+      line-height: 1.5;
+    }
+  }
+}
