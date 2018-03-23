@@ -23,7 +23,7 @@
 
             <div class="map_base">
               <img src="assets/img/map_er.png">
-              <p class="remark"><span class="star">*</span> 急症室服務時間為上午8時至下午4時</p>
+              <p class="remark"><span class="star">*</span> 急症室服務時間為上午8時至晚上8時</p>
             </div>
 
             <div class="map_time">
