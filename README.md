@@ -2,6 +2,11 @@
 
 Demo: [https://hk01data.github.io/ae/](https://hk01data.github.io/ae/)
 
+**Update (2024-08-26):**<br>
+- Update [opendata from Hospital Authority](https://data.gov.hk/en-data/dataset/hospital-hadata-ae-waiting-time)
+- Replaced `node-sass` with `sass@^7`,
+- Use hk01 data group new logo, favicon.ico
+
 **Update:**<br>
 A&E services of Tin Shui Wai Hospital [is extended](http://www.info.gov.hk/gia/general/201802/27/P2018022700368.htm) to 12-hours since 2018-03-21. Opening hours are from 8am to 8pm. It is aiming to be a [24-hours service in November](https://www.hk01.com/sns/article/169565/).
 
