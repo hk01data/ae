@@ -7,7 +7,7 @@
           <div class="col-xs-12">
             <p class="main-logo pull-left">
               <a href="https://hk01.com/" v-on:click="click_link('logo')">
-                <img class="logo-hk01news" src="assets/img/hk01news-logo.png" alt="01新聞">
+                <img class="logo-hk01news" src="assets/img/hk01data-logo.png" alt="01新聞">
               </a>
             </p>
             <h2 class="text-center">急症室輪候時間一覽</h2>
@@ -23,7 +23,6 @@
 
             <div class="map_base">
               <img src="assets/img/map_er.png">
-              <p class="remark"><span class="star">*</span> 急症室服務時間為上午8時至晚上8時</p>
             </div>
 
             <div class="map_time">
@@ -74,24 +73,24 @@ require('../assets/sass/style.scss')
 
 window.G = {}
 var code_map = {
-  'NT-01': 'tp_nethersole',
-  'KLN-01': 'caritas',
-  'KLN-02': 'kwong_wah',
-  'NT-02': 'north_district',
-  'NT-03': 'north_lantau',
-  'NT-06': 'princess_margaret',
-  'NT-04': 'pok_oi',
-  'NT-05': 'prince_wales',
-  'HK-01': 'eastern',
-  'KLN-03': 'queen_elizabeth',
-  'HK-02': 'queen_mary',
-  'HK-03': 'ruttonjee',
-  'NT-07': 'cheung_chau',
-  'NT-09': 'tko',
-  'NT-10': 'tuen_mun',
-  'NT-08': 'tsw',
-  'KLN-04': 'united_christian',
-  'NT-11': 'yan_chai'
+  '雅麗氏何妙齡那打素醫院': 'tp_nethersole',
+  '明愛醫院': 'caritas',
+  '廣華醫院': 'kwong_wah',
+  '北區醫院': 'north_district',
+  '北大嶼山醫院': 'north_lantau',
+  '瑪嘉烈醫院': 'princess_margaret',
+  '博愛醫院': 'pok_oi',
+  '威爾斯親王醫院': 'prince_wales',
+  '東區尤德夫人那打素醫院': 'eastern',
+  '伊利沙伯醫院': 'queen_elizabeth',
+  '瑪麗醫院': 'queen_mary',
+  '律敦治醫院': 'ruttonjee',
+  '長洲醫院': 'cheung_chau',
+  '將軍澳醫院': 'tko',
+  '屯門醫院': 'tuen_mun',
+  '天水圍醫院': 'tsw',
+  '基督教聯合醫院': 'united_christian',
+  '仁濟醫院': 'yan_chai'
 }
 
 export default {
@@ -130,6 +129,9 @@ export default {
     randomToken () {
       return (new Date()).getTime()
     },
+    formatTime (s) {
+      return s.replace('超過', '>').replace('大約', '~')
+    },
     colorScale(value) {
       var vm = this
       var colorS = ["low", "medium", "high", "severe", "nodata"]
@@ -162,12 +164,12 @@ export default {
     },
     fetch_data () {
       var vm = this
-      axios.get('https://cartastrophic.hk01.com/u.php?url=http://www.ha.org.hk/aedwt/data/aedWtData.json' + '?' + this.randomToken())
+      axios.get('https://www.ha.org.hk/opendata/aed/aedwtdata-tc.json' + '?' + this.randomToken())
       .then(function (response) {
         var data = response.data;
-        if (data.success === "Y") {
-          vm.update_time = data.result.timeB5;
-          vm.update_data(data.result.hospData)
+        if (data.updateTime	 != "") {
+          vm.update_time = data.updateTime;
+          vm.update_data(data.waitTime)
         }
       })
       .catch(function (error) {
@@ -178,7 +180,7 @@ export default {
       var vm = this
       var i = 0;
       for (i = 0; i < data.length; i++) {
-        vm[code_map[data[i]['seq']]] = data[i]['topWait'] + (('N/A' == data[i]['topWait']) ? '' : vm.hr)
+        vm[code_map[data[i]['hospName']]] = 'N/A' == data[i]['topWait'] ? '-' : vm.formatTime(data[i]['topWait']) 
       }
     },
     click_link (value) {
